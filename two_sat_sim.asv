@@ -1,8 +1,7 @@
 function [dydt, d_min_out] = two_sat_sim(t, y, mu, J2, Rearth, A2M, CD)
     global min_distance;
-    global min_distance_time;
     global min_distance_r_s1;
-    global min_distance_r_s2;
+global min_distance_r_s2;
 
     y_sat_1 = y(1:6);
     y_sat_2 = y(7:12);
@@ -66,10 +65,7 @@ function [dydt, d_min_out] = two_sat_sim(t, y, mu, J2, Rearth, A2M, CD)
     if d < min_distance
          min_distance = d;
          min_distance_time = t;
-         min_distance_r_s1 = r_s1;
-         min_distance_r_s2 = r_s2;
-
-
+         min_distance_r_s1 = 
          % Collision avoidance: if within threshold and burn not yet applied, apply Δv.
          %if (d < collision_threshold) && ~burn_executed
               % Impulsive burn on satellite 2 (example: small change in velocity)
